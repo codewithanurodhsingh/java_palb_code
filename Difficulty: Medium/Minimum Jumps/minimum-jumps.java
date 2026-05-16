@@ -3,19 +3,19 @@ class Solution {
         
         int n = arr.length;
         
-        // If first element is 0, cannot move
-        if (arr[0] == 0) {
-            return -1;
-        }
-        
         // If array has only one element
         if (n == 1) {
             return 0;
         }
         
-        int jumps = 1;
+        // If first element is 0, cannot move forward
+        if (arr[0] == 0) {
+            return -1;
+        }
+        
         int maxReach = arr[0];
         int steps = arr[0];
+        int jumps = 1;
         
         for (int i = 1; i < n; i++) {
             
@@ -24,13 +24,13 @@ class Solution {
                 return jumps;
             }
             
-            // Update maximum reachable index
+            // Update farthest reachable index
             maxReach = Math.max(maxReach, i + arr[i]);
             
             // Use one step
             steps--;
             
-            // If no steps left
+            // If no more steps left
             if (steps == 0) {
                 
                 jumps++;
