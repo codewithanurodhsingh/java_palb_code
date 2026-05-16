@@ -6,21 +6,22 @@ class Solution {
         int n = a.length;
         int m = b.length;
         
-        int i = n - 1;
-        int j = 0;
+        int left = n - 1;
+        int right = 0;
         
         // Swap elements if needed
-        while (i >= 0 && j < m) {
+        while (left >= 0 && right < m) {
             
-            if (a[i] > b[j]) {
+            if (a[left] > b[right]) {
                 
-                int temp = a[i];
-                a[i] = b[j];
-                b[j] = temp;
+                int temp = a[left];
+                a[left] = b[right];
+                b[right] = temp;
                 
-                i--;
-                j++;
-            } else {
+                left--;
+                right++;
+            } 
+            else {
                 break;
             }
         }
